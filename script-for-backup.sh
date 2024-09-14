@@ -15,27 +15,21 @@ folder_dir=$(dirname "$Input_Folder_Path")
 # Setting the current timestamp
 date_time=$(date +"%Y-%m-%d_%H-%M-%S") 
 
-# Check the Input folder path is provided or not
+# Check the Input folder path is provided or not and also Check the provided paths input or ouput is a valid directory
 if [ "$#" -ne 2 ]
 then
     echo "please provide both input and ouput folders paths"
     exit 1
-fi
 
-
-# Check if the provided path is a valid directory
-if [ ! -d "$Input_Folder_Path" ]
-then 
+elif [ ! -d "$Input_Folder_Path" ]
+then
     echo "The input path $Input_Folder_Path is not a valid directory."
     exit 1 
-fi
 
-
-# Check if the provided path is a valid directory
-if [ ! -d "$Backup_Folder_Path" ]
+elif [ ! -d "$Backup_Folder_Path" ]
 then 
     echo "The backup path $Backup_Folder_Path is not a valid directory."
-    exit 1 
+    exit 1
 fi
 
 echo "Backup Folder Name : $folder_name"
